@@ -22,6 +22,9 @@ class RegisterController extends Controller
     |
     */
 
+    // トレイトを取り込んでいる、
+    // showRegistrationForm アクションと register アクションはRegistersUsersトレイトに定義されてるから、そのまま取り込んでる
+    
     use RegistersUsers;
 
     /**
