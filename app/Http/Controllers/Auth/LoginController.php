@@ -19,6 +19,12 @@ class LoginController extends Controller
     |
     */
 
+    //  AuthenticatesUsers トレイトを使っている
+    //  Routerで設定した showLoginForm や login のアクションはAuthenticatesUsers トレイトに定義されています。
+    
+    //  ログイン成功後のリダイレクト先もユーザ登録成功後と同じ RouteServiceProvider::HOME に設定されています
+    //  app/Http/Controllers/Auth/LoginController.phpを見ると　　protected $redirectTo = RouteServiceProvider::HOME;
+    
     use AuthenticatesUsers;
 
     /**
