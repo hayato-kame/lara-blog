@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
         
         for($i = 1; $i <= 10; $i++) {
             DB::table('users')->insert([
-                'name' => "${fnames[$i % 4]}" . "${gnames[$i % 3]}" ,
+                'name' => "${fnames[$i % 4]}" . " " . "${gnames[$i % 3]}" ,
                 'email' => 'aaa' . $i . '@example.com',
                 'password' => Hash::make('password'. $i),
                 'created_at' => new DateTime(),
