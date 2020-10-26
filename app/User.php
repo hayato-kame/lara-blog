@@ -36,4 +36,30 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    /**
+     * このユーザが所有するブログ投稿。（ Entryモデルとの関係を定義）
+     * 
+     *  UserのインスタンスからそのUserが持つentriesを
+     * $user->entries()->get() もしくは
+     * $user->entries という簡単な記述で取得できるようになります。
+     * 
+     */
+    public function entries()
+    {
+        return $this->hasMany(Entry::class);
+    }
+    
+    /**
+     * このユーザに関係するモデルの件数をロードする。
+     * 
+     * これをアクションで $user->loadRelationshipCounts() のように呼び出した後、
+     * ビューで $user->entries_count のように件数を取得することになります。
+     */
+     public function loadRelationshipCounts()
+     {
+         $this->loadCount('entries');
+     }
+     
+     
 }

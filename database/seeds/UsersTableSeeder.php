@@ -22,6 +22,8 @@ class UsersTableSeeder extends Seeder
                 'name' => "${fnames[$i % 4]}" . "${gnames[$i % 3]}" ,
                 'email' => 'aaa' . $i . '@example.com',
                 'password' => Hash::make('password'. $i),
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
             ]);
         }
         
@@ -32,6 +34,8 @@ class UsersTableSeeder extends Seeder
                 'name' =>'テストユーザー' . $i,
                 'email' => 'bbb' .$i . '@example.com',
                 'password' => Hash::make('password'),
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
             ]);
         }
         
@@ -40,6 +44,8 @@ class UsersTableSeeder extends Seeder
                 'name' => Str::random(10),
                 'email' => Str::random(10) . '@example.com',
                 'password' => Hash::make('password'),
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
             ]);
         }
     }

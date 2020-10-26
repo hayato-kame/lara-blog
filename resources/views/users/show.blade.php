@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+
     <div class="row">
         <aside class="col-sm-4">
             <div class="card">
