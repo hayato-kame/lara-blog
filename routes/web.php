@@ -26,5 +26,11 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
     
     Route::resource('entries', 'EntriesController', ['only' => ['store', 'destroy', 'edit', 'update']]);
+    
+    
+    Route::get('accounts/:id', 'AccountsController@show')->name('accounts.show');
+    Route::get('accounts/{id}/edit', 'AccountsController@edit')->name('accounts.edit');
+    Route::put('accounts/{id}', 'AccountsController@update')->name('accounts.update');
 });
+
 
