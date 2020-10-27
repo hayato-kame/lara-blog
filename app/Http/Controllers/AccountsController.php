@@ -11,13 +11,8 @@ use App\Http\Controllers\Auth;
 
 class AccountsController extends Controller
 {
-    public function show()
+    public function show() // ここでは引数いらない
     {
-        // idの値でユーザを検索して取得
-        // $user = User::findOrFail($id);
-        
-        // 関係するモデルの件数をロード
-        // $user->loadRelationshipCounts();
         
         $user = \Auth::user();
 
@@ -30,7 +25,12 @@ class AccountsController extends Controller
     
     public function edit()
     {
+        $user = \Auth::user();
         
+        return view('accounts.edit', [
+            'user' => $user,
+            
+            ]);
     }
     
     public function update()

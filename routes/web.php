@@ -29,8 +29,8 @@ Route::group(['middleware' => ['auth']], function() {
     
     
     Route::get('accounts/:id', 'AccountsController@show')->name('accounts.show');
-    Route::get('accounts/{id}/edit', 'AccountsController@edit')->name('accounts.edit');
-    Route::put('accounts/{id}', 'AccountsController@update')->name('accounts.update');
+    Route::get('accounts/:id/edit', 'AccountsController@edit')->name('accounts.edit');
+    Route::put('accounts/:id', 'AccountsController@update')->name('accounts.update');
 });
 
 
