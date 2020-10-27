@@ -45,5 +45,49 @@ class EntriesController extends Controller
             return back();
     }
     
+    // getでentries/id/editにアクセスされた場合の「更新画面表示処理」
+    public function edit($id)
+    {
+        // idの値でメッセージを検索して取得
+        $entry = \App\Entry::findOrFail($id);
+        
+        // ブログ編集ビューでそれを表示
+        return view('entries.edit', [
+            'entry' => $entry,
+            ]);
+    }
+    
+    
+    public function update(Request $request, $id)
+    {
+        // idの値でメッセージを検索して取得
+        $entry = \App\Entry::findOrFail($id);
+        
+        // 認証済みユーザ（閲覧者）がその投稿の所有者である場合は メッセージを更新
+         if (\Auth::id() === $entry->user_id){
+        $entry->title = $request->title;
+        $entry->body = $request->body;
+        $entry->save();
+         }
+
+        // トップページへリダイレクトさせる
+        return redirect('/');
+    }
+    
+    public function destroy($id)
+    {
+        // idの値で投稿を検索して取得
+        $entry = \App\Entry::findOrFail($id);
+        
+        // 認証済みユーザ（閲覧者）がその投稿の所有者である場合は、投稿を削除
+        if (\Auth::id() === $entry->user_id){
+            $entry->delete();
+        }
+        
+        // 前のURLへリダイレクトさせる
+        return back();
+        
+    }
+    
     
 }
