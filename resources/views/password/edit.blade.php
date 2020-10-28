@@ -10,7 +10,7 @@ $page_title = "パスワードの変更";
 
 @section('content')
 
-    <div class="text-center">
+    <div >
         <h1>{{ $page_title ?? '' }}</h1>
     </div>
     

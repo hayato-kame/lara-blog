@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// 追加 これがないとダメ
+use App\User;
+use App\Http\Controllers\Auth;
+
 class EntriesController extends Controller
 {
     public function index()
@@ -26,6 +30,19 @@ class EntriesController extends Controller
         // Welcomeビューでそれらを表示
         return view('welcome', $data);
     }
+    
+    
+    public function show($id)
+    {
+        $entry = \App\Entry::findOrFail($id);
+        
+        return view('entries.show', [
+            'entry' => $entry,
+            ]);
+        
+    }
+    
+    
     
     public function store(Request $request)
     {

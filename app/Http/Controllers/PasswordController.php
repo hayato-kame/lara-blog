@@ -68,22 +68,15 @@ class PasswordController extends Controller
             $user->password = $request->password;
             $user->save();
             
-            // return view('accounts.show', [
-            // 'user' => $user,
-            // ]);
             
-           $flash_message = 'パスワード変更が完了しました';
-            return view('accounts.show', [
-            'user' => $user,
-            'flash_message' => $flash_message,
-            ]);
-           
+            $request->session()->flash('flash_message', 'パスワード変更が完了しました');
+            return redirect('accounts/:id');  // return viewは使わないでください
+            
         }else {
-            $flash_message = 'パスワード変更できませんでした。';
-            return view('accounts.show', [
-            'user' => $user,
-            'flash_message' => $flash_message,
-            ]);
+            
+            $request->session()->flash('flash_message', 'パスワード変更できませんでした');
+            return redirect('accounts/:id');  // return viewは使わないでください
+
         }
     }
     

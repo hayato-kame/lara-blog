@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+
+@php
+$page_title = "Signup"; 
+@endphp
+
+{{-- titleの section には　endsection イラナイ --}}
+@section('title', $page_title)
+
 @section('content')
 
     <div class="text-center">

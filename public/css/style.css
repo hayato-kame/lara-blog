@@ -4,3 +4,10 @@ ul.toolbar , div.toolbar{
     margin: 20px;
     text-align: right;
 }
+
+/* フラッシュ */
+p.notice {
+  border: 1px solid blue;
+  padding: 3px;
+  background-color: #ccf;
+}

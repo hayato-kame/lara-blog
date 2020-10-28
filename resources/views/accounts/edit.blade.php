@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @php
-$page_title = "マイアカウント編集"; 
+$page_title = "アカウントの編集"; 
 @endphp
 
 {{-- titleの section には　endsection イラナイ --}}
@@ -30,7 +30,7 @@ $page_title = "マイアカウント編集";
        
       </div>
       
-        {!! Form::submit('更新', ['class' => 'btn btn-primary']) !!}
+        {!! Form::submit('更新', ['class' => 'btn btn-primary btn-block']) !!}
 
         {!! Form::close() !!}
     </div>

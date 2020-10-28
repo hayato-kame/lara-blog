@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@php
+$page_title = "ユーザ詳細"; 
+@endphp
+
+{{-- titleの section には　endsection イラナイ --}}
+@section('title', $page_title)
+
+
 @section('content')
 
 {{--  if文　もし、ユーザーが　認証ユーザなら、 新規ブログを作成のリンクを作成すること--}}

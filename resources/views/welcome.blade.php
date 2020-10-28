@@ -1,5 +1,14 @@
 @extends('layouts.app')
 
+
+@php
+$page_title = "Toppage"; 
+@endphp
+
+{{-- titleの section には　endsection イラナイ --}}
+@section('title', $page_title)
+
+
 @section('content')
     @if (Auth::check())
         <div class="row">

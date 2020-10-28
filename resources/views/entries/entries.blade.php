@@ -15,14 +15,23 @@
                         <p class="mb-0">{!! nl2br(e($entry->title)) !!}</p>
                     </div>
                     <div>
-                        <p class="mb-0">{!! nl2br(e($entry->body)) !!}</p>
+                        <p class="mb-0">
+                            <!--これでもいけた-->
+                            <!--{  { \Illuminate\Support\Str::limit($entry->body, 20, $end='...') }}-->
+                            
+                            {!! nl2br(e(\Illuminate\Support\Str::limit($entry->body, 80, $end='...'))) !!}
+                            </p>
                     </div>
                     
-                        {{--  もっと読む --}}
-                    
+                        {{--  もっと読む 入れ子のリソースへ ユーザのentriのidの情報も送る--}}
+                      
+                    <!--{  !! link_to_route('users.entries.show', 'もっと読む', ['id' => $entry->id]) !!}-->
+               {!! link_to_route('entries.show', 'もっと読む', ['entry' => $entry->id]) !!}        
                     <div class="btn-toolbar">
                     <div class="btn-group">
-                        
+                 
+                   
+                   
                         @if (Auth::id() == $entry->user_id)
                         
                         {{-- 編集ページへのリンク --}}

@@ -13,13 +13,14 @@ $page_title = "マイアカウント";
 
 <h1> {{ $page_title ?? '' }} </h1>
 
-{{-- フラッシュメッセージ を 追加sessionつかいません--}}
-    
-    @if ($flash_message)
-        <div class="alert alert-secondary">
-        {{ $flash_message }}
-        </div>
-    @endif
+{{-- フラッシュメッセージ を 追加session と return redirect('パスはurlを書く') を使って--}}
+@if(Session::has('flash_message'))
+
+<p class="notice">
+  メッセージ：{{ session('flash_message') }}
+</p>
+@endif
+
 
 <ul class="toolbar">
     <!--{  !! link_to_route('accounts.edit', 'アカウント情報の編集', [], ['class' => 'btn btn-lg btn-primary']) !!}-->
