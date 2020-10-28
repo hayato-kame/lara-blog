@@ -13,10 +13,18 @@ $page_title = "マイアカウント";
 
 <h1> {{ $page_title ?? '' }} </h1>
 
+{{-- フラッシュメッセージ を 追加sessionつかいません--}}
+    
+    @if ($flash_message)
+        <div class="alert alert-secondary">
+        {{ $flash_message }}
+        </div>
+    @endif
+
 <ul class="toolbar">
     <!--{  !! link_to_route('accounts.edit', 'アカウント情報の編集', [], ['class' => 'btn btn-lg btn-primary']) !!}-->
-   {!! link_to_route('accounts.edit', 'アカウント情報の編集') !!}
-
+   {!! link_to_route('accounts.edit', 'アカウント情報の編集') !!} | 
+   {!! link_to_route('password.edit', 'パスワードの編集') !!}
   
 </ul>
 

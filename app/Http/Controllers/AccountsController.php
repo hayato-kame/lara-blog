@@ -37,7 +37,7 @@ class AccountsController extends Controller
             ]);
     }
     
-    // 自分のemailアドレスはチェック対象外にしたい  
+    // 自分のemailアドレスはチェック対象外にしたい  、なにも更新せずに、更新ボタンを押しても、通るように
     //  一意チェックに、除外条件も追加できます。ここではwhereNotを利用します。// インポートを追加  use Illuminate\Validation\Rule;
 
     public function update(Request $request)

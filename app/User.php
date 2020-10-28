@@ -9,6 +9,9 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
+    
+    // protected $current_password; 
+    // アクセッサヲ
 
     /**
      * The attributes that are mass assignable.
