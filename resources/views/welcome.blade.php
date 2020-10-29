@@ -10,6 +10,9 @@ $page_title = "Toppage";
 
 
 @section('content')
+
+
+
     @if (Auth::check())
         <div class="row">
             <aside class="col-sm-5">

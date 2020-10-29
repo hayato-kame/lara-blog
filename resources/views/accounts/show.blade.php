@@ -14,12 +14,20 @@ $page_title = "マイアカウント";
 <h1> {{ $page_title ?? '' }} </h1>
 
 {{-- フラッシュメッセージ を 追加session と return redirect('パスはurlを書く') を使って--}}
-@if(Session::has('flash_message'))
+<!--@　　if(Session::has('flash_message'))-->
+
+<!--<    p   class="notice">-->
+<!--  メッセージ：{   {    session('flash_message') }}-->
+<!--</p>-->
+<!--@　　endif-->
+
+@if (session('flash_message'))
 
 <p class="notice">
   メッセージ：{{ session('flash_message') }}
 </p>
 @endif
+
 
 
 <ul class="toolbar">

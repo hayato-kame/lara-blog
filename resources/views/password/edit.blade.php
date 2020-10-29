@@ -14,10 +14,19 @@ $page_title = "パスワードの変更";
         <h1>{{ $page_title ?? '' }}</h1>
     </div>
     
+    @if (session('flash_message'))
+
+    <p class="notice">
+      メッセージ：{{ session('flash_message') }}
+    </p>
+    @endif
+
+    
     <div class="toolbar">{!! link_to_route('accounts.show', 'マイアカウントに戻る') !!}</div>
     
     
     {!! Form::model($user, ['route' => ['password.update', $user->id], 'method' => 'put']) !!}
+    
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
             <table class="table table-striped">
